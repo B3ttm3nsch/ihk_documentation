@@ -1,0 +1,80 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Analysephase} 
+\label{sec:Analysephase}
+% Überblick
+Die erste Analysephase wurde bereits zum Zeitpunkt der Antragstellung des \ac{IHK}-Projektes durchgeführt. Dort wurde bereits mit dem externen Entwickler gesprochen und auf der Grundlage eines Skripts, geschrieben in der Datenbanksprache \acs{SQL}, ein vorläufiges Datenbankmodell für das Projekt erstellt und eingegrenzt.
+
+\subsection{Ist-Analyse} 
+\label{sec:IstAnalyse}
+% Wie ist die bisherige Situation (\zB bestehende Programme, Wünsche der Mitarbeiter)?
+In der \ac{BSG} wird sowohl das eingehende als auch das ausgehende Audio- und Videomaterial analysiert und auf Fehler überprüft. Bei der Analyse werden neben möglichen Fehlern auch Meta-Daten wie das Materialeingangsdatum, Audioformat oder die Version gesammelt. Zudem wird entschieden, ob das Material nochmal überarbeitet oder gar vom Kunden neu übermittelt werden muss, bevor es in die Produktion geht. Eine solche Prüfung wird bisher formlos, meist in Word-Dateien geschrieben. Danach werden die für das Projekt verantwortlichen Mitarbeiter per E-Mail über die Fertigstellung und auf mögliche Mängel hingewiesen. Bei einem solchen Bericht gibt es viele Informationen, welche nur einen begrenzt möglichen Datensatz aufweisen. Weiterhin werden dann die Berichte in den entsprechenden Netzwerkordnern der einzelnen Teilprojekte gespeichert. Das Erhalten eines Überblicks über die Materialeingänge und deren Fehler für ein Teilprojekt ist somit äußerst schwierig. Will man einen solchen Überblick über ein komplettes Projekt oder gar für einen Kunden erhalten, ist dies nahezu unmöglich. Dies erschwert die Kostenberechnung und das Ziehen von Rückschlüssen für künftige Projekte.
+
+\subsection{Wirtschaftlichkeitsanalyse}
+\label{sec:Wirtschaftlichkeitsanalyse}
+Die Wirtschaftlichkeit des neuen standardisierten Berichts zur Qualitätssicherung steht außer Frage. Die derzeitige Darstellung und Bearbeitung ist unübersichtlich und ineffizient. Die Vielzahl der Erstellung von Berichten würde sich in jedem Fall mittelfristig gesehen, refinanzieren. Mit der Inbetriebnahme der neuen Software sollen zudem alle übrigen Projektprozesse dargestellt und deren Kosten ermittelt werden. Warum also die Erstellung eines solchen Berichts ausschließen? Das würde wiederum das Controlling erschweren und auch für diese Kostenstelle einen zusätzlichen Zeit- und damit Kostenaufwand bedeuten.
+
+\subsubsection{\gqq{Make or Buy}-Entscheidung}
+\label{sec:MakeOrBuyEntscheidung}
+% Gibt es vielleicht schon ein fertiges Produkt, dass alle Anforderungen des Projekts abdeckt?
+% Wenn ja, wieso wird das Projekt trotzdem umgesetzt?
+Da die Synchronbranche sehr speziell ist und es keine standardisierte Arbeitsweise oder Projektsoftware für diesen Bereich gibt, entschied sich die \ac{BSG} einen externen Dienstleister mit der Entwicklung einer Software, zugeschnitten auf die Bedürfnisse des Unternehmens, zu engagieren. Von Anfang an war klar, dass dieses Projekt, selbst nach Einführung, von der unternehmenseigenen IT-Abteilung stetig weiterentwickelt werden soll und muss. Da die neue Software noch in den Händen des Entwicklers ist, stellt sich nur die Frage, ob dieser den neuen Bericht erstellt oder der firmeneigene Mitarbeiter / Auszubildende. Aus Zeit- und Kostengesichtspunkten ist der Auszubildende für das Unternehmen am geeignetsten. 
+
+\subsubsection{Projektkosten}
+\label{sec:Projektkosten}
+% Welche Kosten fallen bei der Umsetzung des Projekts im Detail an (\zB Entwicklung, Einführung/Schulung, Wartung)?
+Die Kosten zur Durchführung des Projekts ergeben sich aus den Gehältern der beteiligten Mitarbeiter, die für die Mitarbeiter aufzuwendenden Sozialabgaben, sowie die Gemeinkosten sonstiger Ressourcen. Bei 20 Arbeitstagen monatlich erhält der Auszubildende \eur{884} brutto. Der Arbeitgeberanteil zur Sozialversicherung beträgt dabei \eur{229,53}. Für den Personalaufwand der übrigen Mitarbeiter wird mit einer Pauschale von \eur{30} / Stunde gerechnet.
+
+\begin{eqnarray}
+8 \mbox{ h/Tag}  \cdot 20 \mbox{ Tage/Monat}  = 160  \mbox{ h/Monat}
+\end{eqnarray}
+\begin{eqnarray}
+\frac{\eur{884,00} + \eur{229,53}\mbox{/Monat}}{160\mbox{ h/Monat}} = \frac{\eur{1113,53}\mbox{/Monat}}{160\mbox{h/Monat}} = \eur{6,96}\mbox{/h}
+\end{eqnarray}
+
+Es ergibt sich ein Stundenlohn von \eur{6,96}. Die Durchführungszeit des Projekts beträgt 70 Stunden. Die Nutzung von Ressourcen wird hier mit einem pauschalen Stundensatz von \eur{10} berücksichtigt. Eine Aufstellung der Kosten befindet sich in Tabelle~\ref{tab:Kostenaufstellung}. Die Kosten belaufen sich auf insgesamt \eur{1337,20}.
+
+\tabelle{Projektkosten}{tab:Kostenaufstellung}{Kostenaufstellung.tex}
+
+\subsubsection{Amortisationsdauer}
+\label{sec:Amortisationsdauer}
+% Welche monetären Vorteile bietet das Projekt (\zB Einsparung von Lizenzkosten, Arbeitszeitersparnis, bessere Usability, Korrektheit)?
+% Wann hat sich das Projekt amortisiert?
+Geht man von einer Zeitersparnis bei der Erstellung von 10 Minuten pro Bericht aus, bei zwei Berichten pro Tag, ergibt sich eine durchschnittliche monatliche Zeitersparnis von 400 Minuten über 6,6 Stunden. Bei der veranschlagten Mitarbeiterpauschale ergibt sich eine monatliche Kostenersparnis von \eur{200}. Damit wäre dieses Projekt nach ca.\ 7 Monaten amortisiert.
+Die tatsächliche Amortisationsdauer des Projektes ist zum jetzigen Zeitpunkt noch nicht absehbar, da es nur den ersten Teil des Projekts zur Qualitätssicherung darstellt. Dies stellt wiederum auch nur einen Teil des viel größeren Projektes – Copper dar.
+
+\subsection{Nutzwertanalyse}
+\label{sec:Nutzwertanalyse}
+% Darstellung des nicht-monetären Nutzens (\zB Vorher-/Nachher-Vergleich anhand eines Wirtschaftlichkeitskoeffizienten). 
+Neben der Zeitersparnis und Minimierung der Fehleranfälligkeit liegt der größte Nutzen des Projekts in der Standardisierung der \ac{MEP}s, sowie der späteren Integration in Copper. Auf dieser Grundlage lassen sich die tatsächlich aufgetreten Projektkosten noch genauer kalkulieren und es ist möglich Rückschlüsse auf Kosten zukünftiger Projekte zu ziehen.
+
+%\paragraph{Beispiel}
+%Ein Beispiel für eine Entscheidungsmatrix findet sich in Kapitel~\ref{sec:Architekturdesign}: \nameref{sec:Architekturdesign}.
+
+\subsection{Qualitätsanforderungen}
+\label{sec:Qualitaetsanforderungen}
+% Welche Qualitätsanforderungen werden an die Anwendung gestellt (\zB hinsichtlich Performance, Usability, Effizienz \etc (siehe \citet{ISO9126}))?
+Die Webanwendung soll intuitiv und leicht bedienbar für die im Tonbereich qualifizierten Mitarbeiter sein. Schlüsseldatensätze für spätere Auswertungen sollen auswählbar sein. Zudem muss es für etwaige Fehler Kommentarfelder für genauere Erläuterungen geben. Die Berichte müssen sich eindeutig unterscheiden und einem Teilprojekt zugeordnet sein. Es muss möglich sein, sich die erstellten Berichte anzusehen und diese gegebenenfalls zu editieren. Zudem muss es eine Übersicht für die erstellten \ac{MEP}s eines Teilprojekts geben. Die komplette Ansicht soll über Google-Chrome skalierbar sein.
+
+\subsection{Lastenheft}
+\label{sec:Lastenheft}
+% Auszüge aus dem Lastenheft/Fachkonzept, wenn es im Rahmen des Projekts erstellt wurde.
+% Mögliche Inhalte: Funktionen des Programms (Muss/Soll/Wunsch), User Stories, Benutzerrollen
+% ausführliches Lastenheft im \Anhang{app:Lastenheft}
+Nachfolgend werden die wichtigsten Anforderungen für das Projekt dargestellt.\\[1.5ex]
+\textbf{Anforderungen an die Benutzungsoberfläche:}\\[1.5ex]
+\textbf{LB10:} Die Berichte müssen online über den Chrome-Webbrowser erreichbar sein.\\
+\textbf{LB20:} Die Ansicht muss skalierbar sein.\\
+\textbf{LB30:} Die Bedienung und Formularfelder müssen intuitiv und selbsterklärend sein.\\
+\textbf{LB40:} Sich wiederholende standardisierte Datensätze müssen auswählbar sein.\\
+\textbf{LB50:} Es muss möglic,h sein zu diversen Datensätze, Kommentare zu schreiben.\\
+\textbf{LB60:} Erstellte Berichte müssen editierbar sein.\\
+\textbf{LB70:} Für die erstellten Berichte muss es eine Anzeige geben.\\
+\textbf{LB80:} Es muss eine Übersicht aller Berichte eines Teilprojekts geben.\\[1.5ex]
+\textbf{Funktionelle Anforderungen:}\\[1.5ex]
+\textbf{LF10:} Die Berichte müssen eindeutig voneinander unterschieden werden können.\\
+\textbf{LF20:} Die Navigation zu den Berichten muss vorhanden sein.\\[1.5ex]
+\textbf{Sonstige Anforderungen:}\\[1.5ex]
+\textbf{LS10:} Die Anwendung muss anhand der vorhandenen Information in Copper integrierbar sein.\\
+\textbf{LS20:} Das Projekt muss für das Anschlussprojekt erweiterbar sein.
+
+\Zwischenstand{Analysephase}{Analyse}

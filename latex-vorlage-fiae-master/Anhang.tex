@@ -1,0 +1,68 @@
+% !TEX root = Projektdokumentation.tex
+% \section{Anhang}
+% \subsection{Schritt-für-Schritt Anleitung}
+% \label{app:Anleitung}
+% gesetzt in der pagecommand-Option von \includepdf, damit die erste PDF-Seite die richtigen Header bekommt
+\section{Anhang}
+\input{Anhang/AnhangZeitplan.tex}
+\clearpage
+\includepdf[scale=1.0,clip,trim=0cm 0cm 0cm 0cm,offset=0 -2cm,pages={1},pagecommand={\subsection{Projekt-Ressourcen}\label{app:Ressourcen}}]{Projektressourcen.pdf}
+\clearpage
+\input{Anhang/AnhangMockup.tex}
+\clearpage
+\input{Anhang/AnhangER.tex}
+\clearpage
+\input{Anhang/AnhangTestprotokoll.tex}
+\clearpage
+\subsubsection{Routes.rb}
+\label{app:Routes}
+\lstinputlisting[language=Ruby]{Listings/routes.rb}
+\subsubsection{Migration.rb}
+\label{app:Migration}
+\lstinputlisting[language=Ruby]{Listings/migration.rb}
+\clearpage
+\subsubsection{Model.rb}
+\label{app:Model}
+\lstinputlisting[language=Ruby]{Listings/model.rb}
+\clearpage
+\subsubsection{Controller.rb}
+\label{app:Controller_rb}
+\lstinputlisting[language=Ruby]{Listings/controller.rb}
+\clearpage
+\subsubsection{View.html}
+\label{app:View}
+\lstinputlisting[language=Ruby]{Listings/view.html.haml}
+\clearpage
+\includepdf[scale=1.0,clip,trim=0cm 0cm 0cm 0cm,offset=0 -2cm,pages={1},pagecommand={\subsection{Auszug Benutzerdokumentation}\label{app:Benutzerdokumentation}}]{Benutzerdokumentation.pdf}
+%\clearpage
+%\input{Anhang/AnhangScreenshot.tex}
+% \input{Anhang/AnhangLastenheft.tex}
+% \input{Anhang/AnhangPflichtenheft.tex}
+% \clearpage
+
+% \subsection{Netzpläne}
+% \label{app:Netzplan}
+% Der Netzplan unserer \ac{DMZ} in der Projektumgebung im Labor 3.1.01:
+% \begin{figure}[htb]
+% \centering
+% \includegraphicsKeepAspectRatio{PLZNetzplanProjektumgebung.png}{0.8}
+% \caption{Netzplan der \ac{DMZ} in Raum 3.1.01 (Arbeitsgruppe 9)}
+% \end{figure}
+
+% Der Netzplan unserer \ac{DMZ} in der virtualisierten Testumgebung:
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphicsKeepAspectRatio{PLZNetzplanTestumgebung.png}{0.8}
+%     \caption{Netzplan der erweiterten \ac{DMZ} in unserer virtuellen Testumgebung}
+% \end{figure}
+% \clearpage
+
+% \includepdf[scale=0.925,clip,trim=0cm 0cm 0cm 0cm,offset=0.7cm -1cm,landscape=true,pages={1},pagecommand={\subsection{Kompetenzportfolios}\label{app:Kompetenz}}]{Kompetenzportfolios.pdf}
+% \includepdf[scale=0.95,clip,trim=0cm 0cm 0cm 0cm,offset=0.5cm -0.4cm,landscape=true,pages={2-3},pagecommand={}]{Kompetenzportfolios.pdf}
+% \clearpage
+
+% \section{Testdokumentation}
+% \label{app:Test}
+
+% \input{Anhang/AnhangTest.tex}
+

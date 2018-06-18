@@ -1,0 +1,39 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Implementierungsphase} 
+\label{sec:Implementierungsphase}
+Bevor mit der eigentlichen Programmierung und Implementierung begonnen werden kann, muss direkt am Anfang eine dazugehörige Entwicklungsumgebung aufgesetzt werden. Dies war zum Zeitpunkt des Projektantrags nicht bekannt. 
+Während der gesamten Dauer das Projekts wurde regelmäßig über die Versionsverwaltungssoftware Github gesichert.
+
+\subsection{Implementierung der Projektumgebung}
+\label{subsec:ImplementierungDatenstruktur}
+% Beschreibung der angelegten Datenbank (z.B. Generierung von SQL aus Modellierungswerkzeug oder händisches Anlegen), XML-Schemas usw..
+Nach einem Backup des bisherigen Systems auf einem MacBook Pro, werden \acs{Ruby}, \acs{Rails} und alle weiteren benötigten \acs{Framework}s und Bibliotheken mit den bekannten Informationen eingebunden und deren Funktionstüchtigkeit getestet. Der \acs{MySQL}-Server, \ac{rvm}, über den \acs{Ruby} installiert wird, sowie das Datenbank-Management-System Sequel Pro werden mit Hilfe des OS X Paket Managers Homebrew installiert. Über den Befehl \texttt{rails new app} wird ein neues Projekt erstellt. Als Entwicklungsumgebung (\acs{IDE}) wird Rubymine verwendet.
+
+
+\subsection{Implementierung des Webservers und des Routings}
+\label{subsec:ImplementierungBenutzeroberfläche}
+% Beschreibung der Implementierung der Benutzeroberfläche, falls dies separat zur Implementierung der Geschäftslogik erfolgt (z.B. bei HTML-Oberflächen und Stylesheets).
+% Ggfs. Beschreibung des Corporate Designs und dessen Umsetzung in der Anwendung.
+% Screenshots der Anwendung
+Als Web Server wird Thin verwendet, welcher leicht als \acs{gem} über \acs{Ruby} eingebunden werden kann und keiner weiteren Konfiguration bedarf. In der Projektdatei \texttt{config/routes.rb} werden die Routen zum Controller mit den entsprechenden Operationen definiert. Siehe~\Anhang{app:Routes}.
+
+\subsection{Implementierung der Datenbank}
+\label{subsec:ImplementierungGeschäftslogik}
+% Beschreibung des Vorgehens bei der Umsetzung/Programmierung der entworfenen Anwendung. 
+% Ggfs. interessante Funktionen/Algorithmen im Detail vorstellen, verwendete Entwurfsmuster zeigen. 
+% Quelltextbeispiele zeigen. 
+% Hinweis: Wie in Kapitel 1: Einleitung zitiert, wird nicht ein lauffähiges Programm bewertet, sondern die Projektdurchführung. Dennoch würde ich immer Quelltextausschnitte zeigen, da sonst Zweifel an der tatsächlichen Leistung des Prüflings aufkommen können.
+% Beispiel Die Klasse ComparedNaturalModuleInformation findet sich im Anhang A.11: Klasse: ComparedNaturalModuleInformation auf Seite xv.
+Nach der Erstellung eines Projekts wird über den Befehl rake db:create 
+die Datenbank erstellt und danach das vom externen Entwickler erhaltene \acs{SQL}-Skript importiert. Migrationen für die neuen Tabellen werden in \acs{Rails} geschrieben und über \texttt{rake db:migrate} der Datenbank hinzugefügt. Das hat den Vorteil, dass man jederzeit seine selbst erstellten Migrationen zurücksetzen, diese editieren und der Datenbank wieder hinzufügen kann. Über ein selbst erstelltes \acs{SQL}-Skript werden dann die Daten für die Tabellen der Dropdown-Menüs importiert. Ein Auszug der Migration für die \ac{MEP}-Tabelle findet sich im~\Anhang{app:Migration}.
+
+\subsection{Implementierung der Model-Klassen}
+Für jede Tabelle der Datenbank wird eine Klasse erstellt. Dies geschieht über den Befehl \texttt{rails generate model [Tabellenname]}. Dabei ist darauf zu achten, dass man sich an den Namenskonventionen von \acs{Rails} orientiert. \acs{Rails} kann so die entsprechenden \acs{Model}s der jeweiligen Tabelle automatisch zuordnen und die Datenbankabfragen generieren. Danach werden in den \acs{Model}-Klassen die Relationen zueinander nach dem Vorbild der Datenbank definiert und Operationen zur Gültigkeitsprüfung der an die Tabelle zu übergebenen Daten geschrieben. Ein Auszug des \ac{MEP}-\acs{Model}s findet sich im~\Anhang{app:Model}.
+
+\subsection{Implementierung des Fachkonzepts}
+Über den Befehl \texttt{rails generate controller [Controllername]} wird eine neue Klasse für die entsprechenden Controller erstellt. Entsprechend der Namenskonventionen werden durch \acs{Rails} zusätzliche Dateien wie die \acs{View}s, verschiedene Hilfsdateien, sowie Pfade zu den \acs{View}s der Methoden des \acs{Controller}s angelegt. Anhand der Methodennamen erfolgt dann das Routing zu dessen Operationen. Die Methoden im \acs{Controller} entsprechen den üblichen \acs{CRUD}–Operationen. Ein Auszug des erstellten \acs{Controller}s findet sich im~\Anhang{app:Controller_rb}.
+
+\subsection{Implementierung der Benutzeroberfläche}
+Für die Ansicht der Projekte und Teilprojekte werden nur die nötigsten Dateien und Links für die Weiterleitung zum Materialeingangsbericht implementiert. Die Ansichten für den Bericht werden mit der HTML – Abstraktionssprache (\acs{HAML}) geschrieben. Über die Index-Datei des Berichts werden alle zu dem Teilprojekt gespeicherten Berichte aufgelistet und zu den entsprechenden Ansichten verlinkt. Zudem wird ein Link zur Erstellung eines neuen Berichts generiert. Für das Anzeigen, Bearbeiten und Erstellen wird jeweils das gleiche „Partial“ – Formular mit aktivierten oder deaktivieren Eingabefeldern geladen. Die Datenauswahl in den Dropdown-Menüs wird aus den entsprechenden Tabellen der Datenbank befüllt. Ein Auszug des HAML - Formulars findet sich im~\Anhang{app:View}. Ein Screenshot der daraus generierten HTML-Ansicht findet sich im ~\Anhang{app:Benutzerdokumentation}.
+
+\Zwischenstand{Implementierungsphase}{Implementierung}

@@ -1,0 +1,66 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Entwurfsphase} 
+\label{sec:Entwurfsphase}
+% Erklärung
+Die meisten, jedoch nicht alle, Entscheidungen über verwendete Technologien stehen bereits mit Projektbeginn fest. Denn sie sind von der sich in der Entwicklung befindenden Software – Copper abhängig. In der Entwurfsphase ist es das Ziel, anhand der zur Verfügung stehenden Informationen einen Designplan für die Anwendung zur späteren Integration in Copper zu entwickeln.
+
+\subsection{Zielplattform}
+\label{sec:Zielplattform}
+% Beschreibung der Kriterien zur Auswahl der Zielplattform (u.a. Programmiersprache, Datenbank, Client/Server, Hardware)
+Die \ac{RoR} Webanwendung soll unter dem Apple-Betriebssystem macOS laufen. Die Daten werden in einer lokal installierten \acs{MySQL}-Datenbank gespeichert. Die Anbindung zur Datenbank erfolgt über den \acs{mysql2} \acs{gem}. Zum lokalen Aufrufen und Testen der Applikation über den Chrome-Browser wird der Thin-Webserver verwendet. Die Realisierung der skalierbaren Webanwendung wird über die Auszeichnungssprachen \acs{HAML}, \acs{CSS} und \acs{Bootstrap} sichergestellt.
+
+\subsection{Architekturdesign}
+\label{sec:Architekturdesign}
+% Netzpläne \Anhang{app:Netzplan}
+% Beschreibung und Begründung der gewählten Anwendungsarchitektur (z.B. MVC). Ggfs. Bewertung und Auswahl von verwendeten Frameworks sowie ggfs. eine kurze Einführung in die Funktionsweise des verwendeten Frameworks.
+Als Architekturdesign wird das in \acs{Rails} üblicherweise eingesetzte Model-View-Controller(\acs{MVC})-Muster genutzt. Dabei repräsentieren die \acs{Model}-Klassen die Tabellen der Datenbank. Für die Kommunikation zwischen den \acs{Model}s, der Datenhaltungsschicht, und der Datenbank sorgt der \acs{mysql2} \acs{gem}. Die browserbasierten Darstellungen und Formulare, die \acs{GUI}-Schicht, werden in der \acs{View} repräsentiert. Die Kommunikation und Logik zwischen \acs{View} und \acs{Model} übernimmt der \acs{Controller}. Die ankommenden \acs{HTTP}-Anfragen und Parameter werden über entsprechend definierte Routen an den \acs{Controller} weitergeleitet, welcher dann anhand dieser die sogenannten \ac{CRUD}-Operationen durchführt.
+
+\subsection{Entwurf der Benutzeroberfläche}
+\label{sec:Benutzungsoberfläche}
+% Entscheidung für die gewählte Benutzeroberfläche (z.B. GUI, Webinterface).
+% Beschreibung des visuellen Entwurfs der konkreten Oberfläche (z.B. Mockups, Menüführung).
+% Ggfs. Erläuterung von angewendeten Richtlinien zur Usability und Verweis auf Corporate Design.
+Da die Anwendung primär von ausgebildetem Fachpersonal in der Tonbranche verwendet wird, können auch Fachbegriffe oder Abkürzungen verwendet werden. Die Bewertung des Materials sollte jedoch für jedermann verständlich sein. Die Skalierbarkeit der Anwendung wird durch \acs{Bootstrap} realisiert. Da die Anwendung von internem Personal genutzt und in ein anderes Projekt eingepflegt werden soll, wird auf ein ausgeklügeltes, repräsentatives Design verzichtet. Für Eingabefelder mit begrenzten Werten werden Dropdown-Menüs erzeugt. Zur eindeutigen Kennzeichnung jeder Eingabe werden Label verwendet. Die Datumseingabe erfolgt mithilfe eines Datumswählers. Screenshots der Mockups finden sich im~\Anhang{subsec:Mockup}.
+
+
+\subsection{Datenmodell}
+\label{sec:Datenmodell}
+% Entwurf/Beschreibung der Datenstrukturen (z.B. ERM und/oder Tabellenmodell, XML-Schemas) mit kurzer Beschreibung der wichtigsten (!) verwendeten Entitäten.
+Während der Vorbereitung des Projektantrags ließ mir der externe Entwickler einen kleinen Ausschnitt der Datenbank in Form eines \acs{SQL}-Skripts zukommen. Auf dieser Grundlage muss der bestehende Ausschnitt der Datenbank mit den entsprechenden Namenskonventionen erweitert werden. Dabei werden die benötigten Tabellen über Rails migriert. Es werden Tabellen für alle auszufüllenden Felder mit begrenzten Datensätzen erstellt. Eine Tabelle für den Materialeingangsbericht sammelt die eingegebenen Daten und ordnet diese der Tabelle des Teilprojekts zu, indem sie die entsprechenden Datensätze der anderen Tabellen referenziert. Für jede Tabelle muss in Rails eine Klasse angelegt werden. Dort müssen die Eingaben dann validiert werden, bevor sie tatsächlich in die Datenbank geschrieben werden. Ein Entwurfsdiagramm der Datenbank findet sich im~\Anhang{subsec:ER}.
+
+\subsection{Fachkonzept}
+\label{sec:Geschäftslogik}
+% Modellierung und Beschreibung der wichtigsten (!) Bereiche der Geschäftslogik (z.B. mit Komponenten-, Klassen-, Sequenz-, Datenflussdiagramm, Programmablaufplan, Struktogramm, Ereignisgesteuerte Prozesskette (EPK)).
+% Wie wird die erstellte Anwendung in den Arbeitsfluss des Unternehmens integriert?
+Für die Umsetzung der Logik muss jeweils ein Controller für ein Projekt und ein Teilprojekt angelegt werden, um die grundlegende Struktur von Copper zu simulieren. Dabei beinhalten diese nur die grundlegendsten Methoden, welche es mir gestatten sollen, mich über den Browser zu meinen \acs{View}s zu navigieren und den zu erstellenden Controller für die Berichte anzusprechen. Auf diesen werden dann die \ac{CRUD}-Operationen definiert. 
+
+\subsection{Maßnahmen zur Qualitätssicherung}
+\label{sec:Qualitaetssicherung}
+% Welche Maßnahmen werden ergriffen, um die Qualität des Projektergebnisses (siehe Kapitel~\ref{sec:Qualitaetsanforderungen}: \nameref{sec:Qualitaetsanforderungen}) zu sichern (\zB automatische Tests, Anwendertests)?
+% \Ggfs Definition von Testfällen und deren Durchführung (durch Programme/Benutzer).
+Während der Bearbeitung des Projekts wurde die Funktionalität der Anwendung kontinuierlich getestet. Dabei wurden die Links ausgeführt, die Routen getestet und nach Eingaben die Datenbank auf die Richtigkeit der Werte geprüft. In Zusammenarbeit mit der \ac{QC}-Mitarbeiterin wird ein für die Abnahme erforderliches Testprotokoll erstellt. Ein Auszug des Protokolls befindet sich im~\Anhang{subsec:Testprotokoll}.
+
+\subsection{Pflichtenheft}
+\label{sec:Pflichtenheft}
+% Auszüge aus dem Pflichtenheft/Datenverarbeitungskonzept, wenn es im Rahmen des Projekts erstellt wurde.
+% Refferenz:\nameref{sec:Lastenheft}
+% Pflichtenheft: \Anhang{app:Pflichtenheft}
+Nachfolgend werden die wichtigsten vereinbarten Pflichten des Projekts aufgelistet, um eine Standardisierung der Eingangsberichte, die Integrierbarkeit in Copper sowie die Erweiterbarkeit für die Erstellung späterer Auswertungen zu gewährleisten.\\[1.5ex]
+\textbf{Pflichten der Benutzungsoberfläche:}\\[1.5ex]
+\textbf{PB10:} Es muss eine Webanwendung programmiert und ständig mit Chrome getestet werden.\\
+\textbf{PB20:} Es muss Bootstrap verwendet und die Skalierbarkeit ständig über den Webbrowser getestet werden.\\
+\textbf{PB30:} Jede Eingabe muss ein Label erhalten. Die Namensbezeichnung erfolgt in Absprache mit der zuständigen Mitarbeiterin für Qualitätssicherung.\\
+\textbf{PB40:} Es muss Dropdown-Menüs und Checkboxen geben.\\
+\textbf{PB50:} Es muss Textfelder und Textareas geben. Diese müssen optisch zu den Dropdown-Menüs und Checkboxen zugeordnet werden.\\
+\textbf{PB60:} Es muss eine initiale tabellarische Anzeige der Berichte nach Auswahl des Teilprojekts geben. Dort müssen der Audiotyp, die Version, die Bewertung, sowie Links zum Anzeigen, Bearbeiten und Löschen erscheinen.\\
+\textbf{PB70:} Es muss ein Webformular mit den o.g. Konventionen geben.\\
+\textbf{PB80:} Es muss einen Link zum Bearbeiten geben, welcher das unter \textbf{PB70} definierte Formular mit den entsprechenden Datensätzen lädt.\\
+\textbf{PB90:} Es gibt einen Link zur Anzeige, welcher das unter \textbf{PB70} definierte Formular mit deaktivierten Eingabefelder lädt.\\[1.5ex]
+\textbf{Funktionelle Pflichten:}\\[1.5ex]
+\textbf{PF10:} Berichte mit gleichem Teilprojekt, Audiotyp und Audioformat müssen eine unterschiedliche Versionsnummer haben.\\
+\textbf{PF20:} Über die Auswahl der Teilprojekte muss die Auswahl eines jeden zugehörigen Berichts erfolgen.\\[1.5ex]
+\textbf{Sonstige Pflichten:}\\[1.5ex]
+\textbf{PS10:} Alle bekannten Informationen über Copper vom Betriebssystem bis zu den Versionen der Frameworks und Bibliotheken werden verwendet.\\
+\textbf{PS20:} Die Daten werden in eine relationale MySQL-Datenbank gespeichert.
+
+\Zwischenstand{Entwurfsphase}{Entwurf}

@@ -1,0 +1,41 @@
+% !TEX root = ../Projektdokumentation.tex
+
+\nocite{*}
+\section{Einleitung}
+\label{sec:Einleitung}
+% TODO: Zitat finden, in dem es um den Wert der eigenständigen Projektarbeit geht, und dann hier einfügen.
+\subsection{Projektumfeld} 
+\label{sec:Projektumfeld}
+% Kurze Vorstellung des Ausbildungsbetriebs (Geschäftsfeld, Mitarbeiterzahl \usw)
+\paragraph*{Ausbildungsbetrieb: } Die \ac{BSG} ist ein mittelständisches, international agierendes Unternehmen, dessen Kerngebiet die deutsche Synchronisation englischsprachiger Filme und Serien ist. 1949 als erstes Synchronunternehmen Deutschlands gegründet, hält die \ac{BSG} nach wie vor eine Spitzenstellung innerhalb der Synchronbranche. Seit 2016 ist das Unternehmen Teil der S\&L Medien Gruppe GmbH, die es sich zum Ziel gesetzt hat, ein allumfassendes Unterhaltungsmarketing zu bieten. Neben den rund 60 festen Mitarbeitern, greift die \ac{BSG} auf einen Pool aus über 3 000 Synchronschauspielern, Autoren, Regisseuren, Cuttern und Takern zurück. Die interne IT-Abteilung des Unternehmens beschäftigt derzeit eine Vollzeitkraft und einen Auszubildenden. Unterstützt wird diese durch die IT-Abteilung der S\&L Medien Gruppe sowie durch einen technischen Dienstleister vor Ort. Das Aufgabenfeld der IT-Abteilung umfasst den Aufbau und die Wartung des firmeninternen Netzwerks, die Administration der eigenen Server, die Entwicklung und Pflege der in der Firma eingesetzten Systeme sowie die alltägliche Benutzerunterstützung.
+
+% Wer ist Auftraggeber/Kunde des Projekts?
+\paragraph*{Auftraggeber: } Der Auftraggeber ist in diesem Projekt der Ausbildungsbetrieb – die \ac{BSG}.
+
+\paragraph*{Projektbeschreibung: }Derzeit befindet sich eine neue Software – Copper in der Testphase. Diese wird von einem externen Dienstleister in Zusammenarbeit mit der \ac{BSG} programmiert. Mit Copper sollen alle Tätigkeiten von der Projekterstellung über die Projektumsetzung bis hin zur Projektauswertung gesteuert und alle betrieblichen Prozesse über ein Webinterface zentralisiert dargestellt werden. Eine zusätzliche Webanwendung soll für die neue Software entwickelt werden. Diese Webanwendung soll ein Eingabeformular für einen \ac{MEP} bereitstellen und die vom Benutzer eingegebenen Daten in eine zentrale Datenbank speichern.
+
+\subsection{Projektziel} 
+\label{sec:Projektziel}
+% Worum geht es eigentlich?
+\paragraph*{Projekthintergrund: } Die Synchronisation von Filmen und Serien wird jeweils als ein Projekt bezeichnet. Die Akte eines Kinofilms bzw. die Episoden einer Serie bilden dabei einzelne Teilprojekte. Um diese Teilprojekte in deutscher Sprache aufzunehmen, erhält die Berliner Synchron GmbH von seinen Kunden, meist ausländische Produktionsstudios, sowohl das zu synchronisierende Video- als auch diverse Audiomaterialien. Dabei handelt es sich um unterschiedliche Audiotypen wie Originalton, Musik, Effekte und andere, von denen es wiederum unterschiedliche Versionen gibt. Bevor das gelieferte Material in den Produktionsprozess integriert werden kann, muss dieses analysiert werden. Dabei wird es auf Fehler überprüft und die Qualität des angelieferten Materials wird bewertet. Diese Bewertung kann dazu führen, dass das Audiomaterial überarbeitet oder sogar erneut vom Kunden zugesandt werden muss. Bisher wird das Ergebnis dieser Prüfung formfrei, meist in Word-Dateien, verfasst. Danach werden diese in den entsprechenden Projektordnern gespeichert und die betreffenden Projektbeteiligten per E-Mail informiert.
+
+% Was soll erreicht werden?
+\paragraph*{Ziel des Projekts: } Ziel dieses Projektes ist die Entwicklung einer einfachen und leicht bedienbaren Webanwendung zur Erfassung, Darstellung und zentralen Speicherung der Daten der Materialeingangsprüfung und deren direkter Zuordnung zu einem Teilprojekt. Alle Mitarbeiter sollen nach einer kurzen Einführung in der Lage sein, ein solches Formular problemlos ausfüllen zu können.
+
+\subsection{Projektbegründung} 
+\label{sec:Projektbegruendung}
+% Warum ist das Projekt sinnvoll (\zB Kosten- oder Zeitersparnis, weniger Fehler)?
+\paragraph*{Nutzen des Projekts: } Durch ein standardisiertes Formular mit zum Großteil vorgegebenen Werten über Auswahlfeldern soll die Erstellung eines solchen Meldeberichtes erleichtert und damit beschleunigt werden. Das Projekt setzt auf einen weiteren wichtigen Schwerpunkt: dem Controlling. Neben der Kostenerfassung für den Materialeingangsbericht durch Copper, lässt die zentralisierte Erfassung der Daten und die direkte Zuordnung zu den Projekten und Kunden auch eine übersichtliche und gefilterte Darstellung aller \ac{MEP}s zu. Damit lassen sich Rückschlüsse auf anfallende Kosten für zukünftige Projekte ziehen. Schickt ein Kunde regelmäßig fehlerhaftes Material, verzögert sich die Produktion und die Kosten steigen. Das Erstellen eines solchen Berichts ist auf Grund seines Umfangs nicht Teil dieses Projekts und wird erst in einem Nachfolgeprojekt entwickelt. Die Erstellung und Speicherung der Daten eines Materialeingangs stellt lediglich die Grundlage dar.
+
+% Was ist die Motivation hinter dem Projekt?
+\paragraph*{Motivation: } Der Auftraggeber ist daran interessiert, ein allumfassendes System für die Projektabwicklung zu haben, welches alle Projektschritte dokumentiert und darstellt. Zu diesem Zweck wurde die Software Copper in Auftrag gegeben. Sie wird von einem externen Dienstleister entwickelt und nach erfolgreicher Einführung von der eigenen IT-Abteilung erweitert werden.
+
+\subsection{Projektschnittstellen} 
+\label{sec:Projektschnittstellen}
+% Mit welchen anderen Systemen interagiert die Anwendung (technische Schnittstellen)?
+Copper ist eine Webapplikation, die mit \ac{RoR} erstellt wurde. Da diese Anwendung später auf einem firmeneigenen Server ausgeführt und hauptsächlich im lokalen Netzwerk eingesetzt wird, soll diese vor allem über den in der \ac{BSG} eingesetzten Webbrowser – Google Chrome\footnote{https://www.google.de/chrome/} ausführbar sein. Zur Erstellung der Webseite wird \acs{Bootstrap} verwendet. Die browserbasierten Nutzereingaben werden dann mittels \acs{HTTP} von einem Apache-Webserver entgegen genommen und an die \acs{Rails}-Applikation übermittelt. Dort werden die Anfragen bearbeitet und beantwortet, sowie ggf.\ in eine lokale \acs{MySQL}-Datenbank geschrieben oder ausgelesen. Die Anwendung ist vor allem für die \ac{QC}-Abteilung im Unternehmen gedacht. Die Verantwortliche der \ac{QC}-Abteilung sowie der Ausbilder sind für die Projektabnahme verantwortlich.
+
+\subsection{Projektabgrenzung} 
+\label{sec:Projektabgrenzung}
+
+\paragraph*{Was dieses Projekt nicht bietet: } Eine automatisierte Auswertung sowie sonstige Zusammenfassungen außerhalb eines Teilprojektes werden nicht vorgenommen. Dieses Projekt stellt lediglich die Grundlage dar. Zudem wird die Software während des Projektes noch nicht in Copper integriert. (Siehe  \hyperref[sec:AbweichungenProjektantrag]{Siehe Abweichung vom Projektantrag}).
